@@ -9,6 +9,6 @@ ENV ENTRYPOINT='npm start'
 
 WORKDIR /data/workdir
 
-RUN yum install unzip  wget curl -y
+RUN apt-get install unzip  wget curl -y
 
 ENTRYPOINT curl ${ZIP_PATH} -o file.zip && unzip file.zip && ${ENTRYPOINT}
