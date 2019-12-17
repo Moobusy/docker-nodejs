@@ -2,7 +2,7 @@ version: "3"
 
 services:
   node-wget:
-    image: moobusy/node-wget
+    image: moomesy/node-wget
     ports:
       - "7001:7001"
     container_name: msw-front-server
