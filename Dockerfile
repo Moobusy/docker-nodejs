@@ -16,4 +16,4 @@ RUN npm i yarn ${GLOBAL_INSTALL} -g
 RUN npm config set user 0
 RUN npm config set unsafe-perm true
 
-ENTRYPOINT curl ${ZIP_PATH} -o file.zip && unzip -u file.zip && chmod 644 ./ -R && yarn && ${ENTRYPOINT}
+ENTRYPOINT curl ${ZIP_PATH} -o file.zip && unzip -u file.zip && yarn && chmod +x ./ -R && ${ENTRYPOINT}
