@@ -10,10 +10,11 @@ ENV GLOBAL_INSTALL=''
 
 WORKDIR /data/workdir
 
-RUN apt-get install unzip  wget curl -y
+RUN apt-get update
+RUN apt-get install zip unzip wget curl git -y
 
-RUN npm i yarn ${GLOBAL_INSTALL} -g
+RUN npm i yarn -g
 RUN npm config set user 0
 RUN npm config set unsafe-perm true
 
-ENTRYPOINT curl ${ZIP_PATH} -o file.zip && unzip -u file.zip && yarn && chmod +x ./ -R && ${ENTRYPOINT}
+ENTRYPOINT yarn && ${ENTRYPOINT}

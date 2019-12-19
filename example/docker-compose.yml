@@ -1,11 +1,13 @@
 version: "3"
 
 services:
-  node-wget:
-    image: moomesy/node-wget:0.0.1
+  builder:
+    image: moomesy/nodejs
     ports:
-      - "7001:7001"
-    container_name: msw-front-server
+      - "20000:7001"
+    volumes:
+       - ./workdir:/data/workdir
+       - ./logs:/root/logs
     restart: always
     environment:
-      - ZIP_PATH=http://192.168.0.28:8080/production.zip
+       - ENTRYPOINT=yarn _start
